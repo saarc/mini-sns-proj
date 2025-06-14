@@ -1,0 +1,43 @@
+<div class="card shadow-sm post">
+  <div class="card-body">
+    <!-- Post Author and Date -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <strong class="text-primary">
+        <i class="bi bi-person-circle"></i> <%= post.author %>
+      </strong>
+      <small class="text-muted">
+        <i class="bi bi-clock"><%= post.createdAt.toLocaleString() %></i>
+      </small>
+    </div>
+
+    <!-- Post Content -->
+    <p class="card-text"><%= post.content %></p>
+
+    <!-- Like Button and Likes Count -->
+    <div class="d-flex align-items-center mb-3">
+      <button
+        class="btn btn-outline-danger btn-sm border-0 like-button"
+        data-id="<%= post.uuid %>"
+        data-liked="<%= post.isLiked %>"
+      >
+        <i class="bi <%= post.isLiked ? 'bi-heart-fill' : 'bi-heart' %>"></i>
+      </button>
+      <span class="likes-count"><%= post.likes.length %> Likes</span>
+    </div>
+    <div>
+      <input
+        type="text"
+        class="comment-input"
+        placeholder="Write a comment..."
+      />
+      <button class="add-comment">Add Comment</button>
+      <div class="comments"></div>
+    </div>
+  </div>
+  <!-- <strong>Alice</strong><br />
+        <span>Hello, this is my first post!</span> -->
+  <!-- <strong><%= post.username %></strong><br /> -->
+
+  <!-- Comment Area -->
+</div>
+<hr />
